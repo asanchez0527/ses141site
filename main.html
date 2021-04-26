@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>World Energy Usage</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+        integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA=="
+        crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"
+        integrity="sha512-wV7Yj1alIZDqZFCUQJy85VN+qvEIly93fIQAN7iqDFCPEucLCeNFz4r35FCo9s6WrpdDQPi80xbljXB8Bjtvcg=="
+        crossorigin="anonymous"></script>
+    <script src="worldpop.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div class="d-flex flex-column"></div>
+        <!-- Title and  Count-->
+        <div class="text-center">
+            <h1>Current World Energy Usage per Year: </h1>
+            <div class="row justify-content-center">
+                <p style="font-size: 30px; margin-right: 10px;">Population: </p>
+                <div id='worldPop' style="font-size: 30px;"></div>
+            </div>
+        </div>
+
+        <!-- Energy Usage -->
+        <p style="font-size: 30px;">Fact:
+            <i>The entire human population used
+                <a
+                    href="https://www.statista.com/statistics/280704/world-power-consumption/#:~:text=The%20world's%20electricity%20consumption%20amounted,23%2C398%20terawatt%20hours%20in%202018.">
+                    23,398 TWh of electricity in 2018
+                </a>
+            </i>
+        </p>
+
+        <p id="twhPerPerson" style="font-size: 30px;"></p>
+
+        <hr style="width:70%;text-align:center;margin-left:15%">
+        <div class="row">
+            <div class="col">
+                <!-- Energy Usage By Percentage -->
+                <p style="font-size: 20px;"> What is all this energy used for? (USA) </p>
+                <ul style=" font-size: 20px; list-style-type:circle">
+                    <li>Transportation (37%)</li>
+                    <li>Industrial (35%) </li>
+                    <li>Residential (16%)</li>
+                    <li>Commercial (12%)</li>
+                </ul>
+
+                <p style="font-size: 20px;">How can we reduce our impact?</p>
+                <ul style=" font-size: 20px; list-style-type:circle">
+                    <li>Buy electric vehicles</li>
+                        <ul>
+                            <li>These tend to be more energy efficient that gas cars and have less carbon footprint</li>
+                        </ul>
+                    <li>Carpool when possible</li>
+                        <ul>
+                            <li>A large percentage of our energy usage is transportation so the less cars on the road
+                                the better
+                            </li>
+                        </ul>
+                    <li>Upgrade A/C Units</li>
+                        <ul>
+                            <li>Modern a/c units are held to higher energy efficiency standards and do a 
+                                better job cooling the same space
+                            </li>
+                        </ul>
+                    <li>Get a new water heater</li>
+                        <ul>
+                            <li>Tankless water heaters are around 24-34% more efficient</li>
+                        </ul>
+                </ul>
+            </div>
+            <div class="col">
+                <iframe src="https://ourworldindata.org/grapher/per-capita-energy-use" loading="lazy"
+                    style="width: 600px; height: 600px; border: 0px none;"></iframe>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- <audio controls autoplay loop style="position: fixed; top: 8px; right: 16px;">
+        <source src="bensound-sunny.mp3" type="audio/mpeg">
+    </audio> -->
+
+</body>
+
+</html>
