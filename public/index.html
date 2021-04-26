@@ -1,89 +1,93 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/8.4.2/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/8.4.2/firebase-auth.js"></script>
-    <script defer src="/__/firebase/8.4.2/firebase-database.js"></script>
-    <script defer src="/__/firebase/8.4.2/firebase-firestore.js"></script>
-    <script defer src="/__/firebase/8.4.2/firebase-functions.js"></script>
-    <script defer src="/__/firebase/8.4.2/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/8.4.2/firebase-storage.js"></script>
-    <script defer src="/__/firebase/8.4.2/firebase-analytics.js"></script>
-    <script defer src="/__/firebase/8.4.2/firebase-remote-config.js"></script>
-    <script defer src="/__/firebase/8.4.2/firebase-performance.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+<head>
+    <title>World Energy Usage</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+        integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA=="
+        crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"
+        integrity="sha512-wV7Yj1alIZDqZFCUQJy85VN+qvEIly93fIQAN7iqDFCPEucLCeNFz4r35FCo9s6WrpdDQPi80xbljXB8Bjtvcg=="
+        crossorigin="anonymous"></script>
+    <script src="worldpop.js"></script>
+    <script src="main.js"></script>
+</head>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+<body>
+    <div class="d-flex flex-column"></div>
+        <!-- Title and  Count-->
+        <div class="text-center">
+            <h1>Current World Energy Usage per Year: </h1>
+            <div class="row justify-content-center">
+                <p style="font-size: 30px; margin-right: 10px;">Population: </p>
+                <div id='worldPop' style="font-size: 30px;"></div>
+            </div>
+        </div>
+
+        <!-- Energy Usage -->
+        <p style="font-size: 30px;">Fact:
+            <i>The entire human population used
+                <a
+                    href="https://www.statista.com/statistics/280704/world-power-consumption/#:~:text=The%20world's%20electricity%20consumption%20amounted,23%2C398%20terawatt%20hours%20in%202018.">
+                    23,398 TWh of electricity in 2018
+                </a>
+            </i>
+        </p>
+
+        <p id="twhPerPerson" style="font-size: 30px;"></p>
+
+        <hr style="width:70%;text-align:center;margin-left:15%">
+        <div class="row">
+            <div class="col">
+                <!-- Energy Usage By Percentage -->
+                <p style="font-size: 20px;"> What is all this energy used for? (USA) </p>
+                <ul style=" font-size: 20px; list-style-type:circle">
+                    <li>Transportation (37%)</li>
+                    <li>Industrial (35%) </li>
+                    <li>Residential (16%)</li>
+                    <li>Commercial (12%)</li>
+                </ul>
+
+                <p style="font-size: 20px;">How can we reduce our impact?</p>
+                <ul style=" font-size: 20px; list-style-type:circle">
+                    <li>Buy electric vehicles</li>
+                        <ul>
+                            <li>These tend to be more energy efficient that gas cars and have less carbon footprint</li>
+                        </ul>
+                    <li>Carpool when possible</li>
+                        <ul>
+                            <li>A large percentage of our energy usage is transportation so the less cars on the road
+                                the better
+                            </li>
+                        </ul>
+                    <li>Upgrade A/C Units</li>
+                        <ul>
+                            <li>Modern a/c units are held to higher energy efficiency standards and do a 
+                                better job cooling the same space
+                            </li>
+                        </ul>
+                    <li>Get a new water heater</li>
+                        <ul>
+                            <li>Tankless water heaters are around 24-34% more efficient</li>
+                        </ul>
+                </ul>
+            </div>
+            <div class="col">
+                <iframe src="https://ourworldindata.org/grapher/per-capita-energy-use" loading="lazy"
+                    style="width: 600px; height: 600px; border: 0px none;"></iframe>
+            </div>
+
+        </div>
+
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+    <!-- <audio controls autoplay loop style="position: fixed; top: 8px; right: 16px;">
+        <source src="bensound-sunny.mp3" type="audio/mpeg">
+    </audio> -->
+
+</body>
+
 </html>
